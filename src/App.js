@@ -10,6 +10,7 @@ import NameList from "./components/NameList"
 import Stylesheet from "./components/Stylesheet"
 import Inline from "./components/Inline"
 import Form from "./components/Form"
+import PostList from "./components/PostList"
 
 function App() {
     return (
@@ -29,8 +30,9 @@ function App() {
             <Stylesheet/>
             <Inline/>
             <h1 className="error">Error</h1>
-            <h1 className={styles.success}>Success</h1>*/}
-            <Form />
+            <h1 className={styles.success}>Success</h1>
+            <Form />*/}
+            <PostList />
         </div>
     );
 }
