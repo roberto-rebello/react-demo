@@ -1,18 +1,22 @@
 import './App.css';
-import {useState} from "react";
+import {useState, useTransition} from "react";
 import NAMES from "./components/data.json";
 
 function App() {
     const [query, setQuery] = useState("");
+    const [inputValue, setInputValue] = useState("");
+    const [isPending, startTransition] = useTransition();
 
     const changeHandler = (changeEvent) => {
-        setQuery(changeEvent.target.value);
+        setInputValue(changeEvent.target.value);
+        startTransition(() => setQuery(changeEvent.target.value));
     }
     const filteredName = NAMES.filter((item) => {return item.first_name.includes(query) || item.last_name.includes(query)})
 
     return (
         <div className="App">
-            <input type="text" value={query} onChange={changeHandler}/>
+            <input type="text" value={inputValue} onChange={changeHandler}/>
+            {isPending && <p>Updating List...</p>}
             {
                 filteredName.map((item) => (<p key={item.id}>{item.first_name} {item.last_name}</p>))
             }
