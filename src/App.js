@@ -2,6 +2,7 @@ import './App.css';
 import Greet from "./components/Greet"
 import Message from "./components/Message"
 import ClickHandler from "./components/ClickHandler"
+import ParentComponent from "./components/ParentComponent"
 
 function App() {
     return (
@@ -13,8 +14,9 @@ function App() {
             <Greet name="Diana" heroName="Wonder Woman">
                 <p>This is children props</p>
             </Greet>
-            <Message/>*/}
-            <ClickHandler/>
+            <Message/>
+            <ClickHandler/>*/}
+            <ParentComponent/>
         </div>
     );
 }
