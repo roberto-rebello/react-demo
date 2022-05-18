@@ -11,6 +11,7 @@ import Stylesheet from "./components/Stylesheet"
 import Inline from "./components/Inline"
 import Form from "./components/Form"
 import PostList from "./components/PostList"
+import PostForm from "./components/PostForm"
 
 function App() {
     return (
@@ -31,8 +32,9 @@ function App() {
             <Inline/>
             <h1 className="error">Error</h1>
             <h1 className={styles.success}>Success</h1>
-            <Form />*/}
-            <PostList />
+            <Form />
+            <PostList />*/}
+            <PostForm/>
         </div>
     );
 }
