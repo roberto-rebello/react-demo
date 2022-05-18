@@ -1,40 +1,21 @@
 import './App.css';
-import './appStyles.css';                       // Applies to child components as well
-import styles from './appStyles.module.css';    // Scoped styles, not usable by childs
-import Greet from "./components/Greet"
-import Message from "./components/Message"
-import ClickHandler from "./components/ClickHandler"
-import ParentComponent from "./components/ParentComponent"
-import UserGreeting from "./components/UserGreeting"
-import NameList from "./components/NameList"
-import Stylesheet from "./components/Stylesheet"
-import Inline from "./components/Inline"
-import Form from "./components/Form"
-import PostList from "./components/PostList"
-import PostForm from "./components/PostForm"
+import {useState} from "react";
+import NAMES from "./components/data.json";
 
 function App() {
+    const [query, setQuery] = useState("");
+
+    const changeHandler = (changeEvent) => {
+        setQuery(changeEvent.target.value);
+    }
+    const filteredName = NAMES.filter((item) => {return item.first_name.includes(query) || item.last_name.includes(query)})
+
     return (
         <div className="App">
-            {/*<Greet name="Bruce" heroName="Batman"/>
-            <Greet name="Clark" heroName="Superman">
-                <button>Action!</button>
-            </Greet>
-            <Greet name="Diana" heroName="Wonder Woman">
-                <p>This is children props</p>
-            </Greet>
-            <Message/>
-            <ClickHandler/>
-            <ParentComponent/>
-            <UserGreeting/>
-            <NameList/>
-            <Stylesheet/>
-            <Inline/>
-            <h1 className="error">Error</h1>
-            <h1 className={styles.success}>Success</h1>
-            <Form />
-            <PostList />*/}
-            <PostForm/>
+            <input type="text" value={query} onChange={changeHandler}/>
+            {
+                filteredName.map((item) => (<p key={item.id}>{item.first_name} {item.last_name}</p>))
+            }
         </div>
     );
 }
