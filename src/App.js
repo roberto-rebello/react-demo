@@ -1,6 +1,7 @@
 import './App.css';
 import Greet from "./components/Greet"
 import Message from "./components/Message"
+import ClickHandler from "./components/ClickHandler"
 
 function App() {
     return (
@@ -11,8 +12,9 @@ function App() {
             </Greet>
             <Greet name="Diana" heroName="Wonder Woman">
                 <p>This is children props</p>
-            </Greet>*/}
-            <Message/>
+            </Greet>
+            <Message/>*/}
+            <ClickHandler/>
         </div>
     );
 }
